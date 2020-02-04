@@ -1,4 +1,4 @@
-# 用Go (Golang) 来复习一些我认为经典的LeetCode题目
+# 用Go (Golang) 来做一些LeetCode题目
 
 
 ## 题目
