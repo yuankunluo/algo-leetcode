@@ -11,22 +11,27 @@ type TreeNode struct {
 // isBalanced is to check if a tree is balanced
 //
 func isBalanced(root *TreeNode) bool {
-	// nil tree is always balanced
 	if root == nil {
 		return true
 	}
-	leftHeight := height(root.Left)
-	rightHeight := height(root.Right)
-	return (abs(leftHeight-rightHeight) <= 1) && isBalanced(root.Left) && isBalanced(root.Right)
+	balanced := true
+	height(root, &balanced)
+	return balanced
 }
 
 // height return a tree's height
 //
-func height(root *TreeNode) int {
+func height(root *TreeNode, balanced *bool) int {
 	if root == nil {
 		return 0
 	}
-	return 1 + max(height(root.Left), height(root.Right))
+	leftHeight := height(root.Left, balanced)
+	rightHeight := height(root.Right, balanced)
+	if abs(leftHeight-rightHeight) > 1 {
+		*balanced = false
+		return -1
+	}
+	return max(leftHeight, rightHeight) + 1
 }
 
 // abs computes the absolute value of a number.
