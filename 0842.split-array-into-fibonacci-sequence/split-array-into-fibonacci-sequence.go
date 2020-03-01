@@ -47,7 +47,11 @@ func dfs(s []rune, pos int, ans *[]int) bool {
 				continue
 			}
 		}
+
+		// Here the num == sum, find a temp number.
+		// Push a temp answer into ans array.
 		*ans = append(*ans, num)
+		// Recursively call.
 		if dfs(s, i+1, ans) {
 			return true
 		}
