@@ -13,7 +13,7 @@
 	 Random *Node
  }
 
- func copyRandomList(head *Node) *Node {
+ func List(head *Node) *Node {
     if head == nil {
 		return nil
 	}

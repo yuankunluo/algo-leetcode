@@ -1,5 +1,6 @@
 package problem200
 
+// Leetcode: Number of island.
 func numIslands(grid [][]byte) int {
 	if len(grid) == 0 {
 		return 0
@@ -9,6 +10,7 @@ func numIslands(grid [][]byte) int {
 	ans := 0
 	for y := 0; y < m; y++ {
 		for x := 0; x < n; x++ {
+			// If one, ans++
 			ans += int(grid[y][x] - '0')
 			dfs(grid, x, y, m, n)
 		}
